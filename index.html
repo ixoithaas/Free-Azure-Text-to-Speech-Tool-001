@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#090c11" />
+    <meta
+      name="description"
+      content="Cadence is a free Microsoft neural text-to-speech studio for turning scripts into natural narration."
+    />
+    <title>Cadence — Free Neural Text to Speech Studio</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: #f6f8fb;
+        background: #090c11;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        --muted: #a0aabd;
+        --ember: #ff9d5c;
+        --mint: #3fe0c3;
+      }
+      * { box-sizing: border-box; }
+      body {
+        min-width: 320px;
+        min-height: 100vh;
+        margin: 0;
+        background:
+          radial-gradient(ellipse 620px 450px at 8% 0%, rgba(255, 122, 61, .16), transparent 70%),
+          radial-gradient(ellipse 650px 420px at 100% 10%, rgba(63, 224, 195, .11), transparent 70%),
+          #090c11;
+      }
+      a { color: inherit; }
+      .wrap { width: min(1080px, calc(100% - 40px)); margin: 0 auto; }
+      header { display: flex; align-items: center; justify-content: space-between; padding: 26px 0; }
+      .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-size: 18px; font-weight: 700; letter-spacing: -.04em; }
+      .mark { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 11px; color: #101217; background: linear-gradient(135deg, #ffc18e, #ff7138); }
+      .mark svg { width: 20px; height: 20px; }
+      .github { color: var(--muted); text-decoration: none; font-size: 13px; }
+      .github:hover { color: #fff; }
+      main { padding: 75px 0 90px; }
+      .hero { max-width: 790px; }
+      .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--mint); font-size: 12px; font-weight: 650; letter-spacing: .12em; text-transform: uppercase; }
+      .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 16px rgba(63, 224, 195, .8); }
+      h1 { max-width: 760px; margin: 22px 0 20px; font-size: clamp(44px, 8vw, 78px); line-height: .99; letter-spacing: -.065em; }
+      h1 span { color: var(--ember); }
+      .intro { max-width: 640px; margin: 0; color: #b5becc; font-size: clamp(17px, 2.5vw, 20px); line-height: 1.7; }
+      .notice { display: flex; gap: 14px; max-width: 730px; margin-top: 35px; padding: 18px 20px; border: 1px solid rgba(255, 157, 92, .24); border-radius: 15px; background: rgba(255, 157, 92, .07); color: #dce1e9; font-size: 14px; line-height: 1.65; }
+      .notice-icon { flex: 0 0 auto; color: var(--ember); font-weight: 800; }
+      .notice strong { color: #fff; }
+      .notice p { margin: 0; }
+      .section-label { margin: 70px 0 18px; color: #7e899a; font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+      .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .card { min-height: 170px; padding: 23px; border: 1px solid rgba(255,255,255,.075); border-radius: 18px; background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.012)); }
+      .card-icon { margin-bottom: 22px; color: var(--ember); font-size: 19px; }
+      .card:nth-child(2) .card-icon { color: var(--mint); }
+      .card:nth-child(3) .card-icon { color: #b5a5ff; }
+      .card h2 { margin: 0 0 8px; font-size: 15px; letter-spacing: -.02em; }
+      .card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+      .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 28px; }
+      .button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: 9px; padding: 0 16px; border: 1px solid rgba(255,255,255,.12); border-radius: 11px; text-decoration: none; font-size: 13px; font-weight: 650; transition: transform .15s ease, border-color .15s ease; }
+      .button:hover { transform: translateY(-1px); border-color: rgba(255,255,255,.3); }
+      .button.primary { border: 0; background: linear-gradient(110deg, #ffaf75, #ff783f); color: #17100d; }
+      .button svg { width: 16px; height: 16px; }
+      .setup { max-width: 730px; padding: 24px; border: 1px solid rgba(255,255,255,.075); border-radius: 17px; background: rgba(10, 13, 19, .8); }
+      .setup h2 { margin: 0 0 10px; font-size: 17px; }
+      .setup p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+      code { color: #ffc18e; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
+      footer { padding: 22px 0 30px; border-top: 1px solid rgba(255,255,255,.07); color: #758094; font-size: 12px; }
+      @media (max-width: 700px) {
+        main { padding-top: 55px; }
+        .features { grid-template-columns: 1fr; }
+        .card { min-height: 0; }
+        .section-label { margin-top: 52px; }
+        .notice { font-size: 13px; }
+      }
+      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <a class="brand" href="./" aria-label="Cadence home">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 10v4m4-8v12m4-15v18m4-13v8m4-11v14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+          </span>
+          Cadence
+        </a>
+        <a class="github" href="https://github.com/ixoithaas/Free-Azure-Text-to-Speech-Tool-001">View on GitHub ↗</a>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="title">
+          <div class="eyebrow"><span class="dot" aria-hidden="true"></span> Free neural text to speech</div>
+          <h1 id="title">Give your words a <span>voice.</span></h1>
+          <p class="intro">Cadence turns scripts into natural-sounding narration with Microsoft neural voices. Fine-tune delivery, preview your audio, and export a polished clip.</p>
+          <div class="notice" role="note">
+            <span class="notice-icon" aria-hidden="true">ⓘ</span>
+            <p><strong>About this GitHub Pages site:</strong> Pages can host static files, but the Cadence studio needs a Node.js server for speech synthesis and a PostgreSQL database for saved clips. This page is the project landing page; it cannot run the full studio by itself.</p>
+          </div>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/ixoithaas/Free-Azure-Text-to-Speech-Tool-001">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5h11v14H8a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3Zm0 0v14M9 9h6M9 13h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Explore the project
+            </a>
+            <a class="button" href="#run-the-full-app">Deployment requirements ↓</a>
+          </div>
+        </section>
+
+        <p class="section-label">Inside the studio</p>
+        <section class="features" aria-label="Studio features">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">〰</div>
+            <h2>Natural neural voices</h2>
+            <p>Browse a broad catalog of Microsoft voices and languages for clear, expressive narration.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">◉</div>
+            <h2>Fine-tune your read</h2>
+            <p>Adjust speaking rate, pitch, volume, and audio format to suit your script.</p>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">▤</div>
+            <h2>Keep clips together</h2>
+            <p>Save generated audio with its script and word timings, then revisit your clip history.</p>
+          </article>
+        </section>
+
+        <p class="section-label">Run the full app</p>
+        <section class="setup" id="run-the-full-app">
+          <h2>Deploy the Next.js app on a server host</h2>
+          <p>The interactive studio uses Next.js API routes and PostgreSQL, which GitHub Pages does not execute. To use all features, deploy this repository to a host that supports Node.js, configure <code>DATABASE_URL</code>, and follow the setup instructions in the repository. Use GitHub Pages for this static project page, or update the app link above once you have deployed the studio.</p>
+        </section>
+      </main>
+      <footer>Cadence · Open-source text-to-speech studio</footer>
+    </div>
+  </body>
+</html>
